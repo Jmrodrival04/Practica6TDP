@@ -1,0 +1,26 @@
+@startuml
+actor Jugador as jugador
+participant "JuegoDeTablero" as juego
+
+== Inicialización ==
+jugador -> juego: JuegoDeTablero()
+activate juego
+juego -> juego: inicializarTablero()
+juego -> juego: jugar()
+deactivate juego
+
+== Juego ==
+juego -> juego: mostrarTablero()
+loop Hasta que se acierte
+    juego -> juego: introducirEnteroEntreLimites(1, 4)
+    juego -> juego: introducirColumna()
+    juego -> juego: disparar(fila, columna)
+    alt si se acierta
+        juego -> juego: mostrarTablero()
+        jugador <- juego: "Tocado y hundido"
+    else si se falla
+        juego -> juego: mostrarTablero()
+        jugador <- juego: "Agua, intenta nuevamente"
+    end
+end
+@enduml

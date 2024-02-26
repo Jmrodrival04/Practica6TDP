@@ -1,0 +1,16 @@
+@startuml
+start
+:Iniciar programa;
+repeat
+  :Leer número1;
+  :Leer número2;
+  :Calcular el mayor usando\nmayorDeDos(numero1, numero2);
+  :Clasificar números usando\nclasificarNumeros(numero1, numero2);
+  :Mostrar el mayor y la clasificación;
+  :Preguntar: "¿Desea comparar otros números? (sí/no)";
+  ->[sí] "Continuar";
+repeat while (respuesta es sí)
+->[no] "Finalizar";
+:Fin del programa;
+stop
+@enduml

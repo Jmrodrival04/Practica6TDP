@@ -1,0 +1,18 @@
+@startuml
+class TallerDeArteASCII {
+    - lienzo : char[][]
+    + TallerDeArteASCII(alto: int, ancho: int)
+    + dibujarCaracter(fila: int, columna: int, caracter: char) : void
+    + dibujarRectangulo(fila1: int, columna1: int, fila2: int, columna2: int, caracter: char) : void
+    + cambiarColor(fila: int, columna: int, nuevoCaracter: char) : void
+    + mostrarLienzo() : void
+}
+
+class Scanner {
+    + nextInt() : int
+    + next() : String
+    + nextLine() : String
+}
+
+TallerDeArteASCII ..> Scanner : uses
+@enduml

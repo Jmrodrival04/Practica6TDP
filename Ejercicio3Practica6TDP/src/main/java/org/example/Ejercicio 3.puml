@@ -1,0 +1,15 @@
+@startuml
+
+class TablaAleatoria {
+    +crearTablaAleatoria(tamaño: int, mínimo: int, máximo: int) : int[]
+    +encontrarMayor(tabla: int[]) : int
+    {static} +main(args : String[])
+}
+
+class Aplicacion {
+    -tablaAleatoria : TablaAleatoria
+}
+
+Aplicacion ..> TablaAleatoria : utiliza
+
+@enduml

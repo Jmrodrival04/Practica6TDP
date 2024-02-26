@@ -1,0 +1,35 @@
+@startuml
+participant "main" as main
+participant "crearTableroInicial" as crearTablero
+participant "mostrarTablero" as mostrar
+participant "esConfiguracionFinal" as esFinal
+participant "realizarMovimiento" as mover
+participant "esMovimientoValido" as esValido
+
+main -> crearTablero: Llama
+activate crearTablero
+crearTablero -> main: Retorna tablero
+deactivate crearTablero
+
+loop Mientras el juego no termine
+    main -> mostrar: Muestra tablero
+    activate mostrar
+    mostrar -> main:
+    deactivate mostrar
+
+    main -> esFinal: Verifica estado
+    activate esFinal
+    esFinal -> main: Retorna estado
+    deactivate esFinal
+
+    main -> mover: Intenta mover oveja
+    activate mover
+    mover -> esValido: Verifica validez
+    activate esValido
+    esValido -> mover: Retorna validez
+    deactivate esValido
+    mover -> main:
+    deactivate mover
+end
+
+@enduml
